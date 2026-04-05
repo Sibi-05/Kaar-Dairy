@@ -1,0 +1,122 @@
+.invoice-page {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #111;
+}
+
+.invoice-main-header {
+  border-bottom: 4px solid #111;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.invoice-main-header h1 {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.invoice-main-header p {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #666;
+}
+
+/* Row Summary */
+.invoice-item {
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.invoice-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 20px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.invoice-item:hover {
+  border-color: #111;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.col small {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+.col span {
+  font-size: 0.95rem;
+}
+
+/* Expanded Detail Section */
+.invoice-detail {
+  padding: 30px;
+  background-color: #fafafa;
+  border-top: 1px dashed #ccc;
+  animation: slideDown 0.3s ease-out;
+}
+
+.detail-header h3 {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #111;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.detail-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.detail-table th {
+  text-align: left;
+  font-size: 0.7rem;
+  color: #666;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.detail-table td {
+  padding: 12px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eee;
+}
+
+.mono { font-family: 'Courier New', monospace; }
+.bold { font-weight: 700; }
+.text-right { text-align: right; }
+
+.expand-btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dat{
+    margin-right:10px;
+}

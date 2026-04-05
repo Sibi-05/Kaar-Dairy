@@ -1,0 +1,205 @@
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px; 
+    padding: 50px;
+    justify-items: center; 
+}
+
+.item {
+    border: 2px solid black;   
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;  
+    width: 250px;
+    overflow: hidden;
+}
+
+.item img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.item img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.milk-image{
+    background-color: rgb(97, 155, 243);
+}
+
+.about-milk {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px;
+    margin-top: 60px;
+    flex-wrap: wrap; /* allows stacking on small screens */
+}
+
+.about-milk img{
+    border-radius: 15px;
+}
+
+/* Text container */
+.about-milk div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+/* Heading */
+.about-milk h1 {
+    width:fit-content;
+    padding: 10px;
+    font-size: 32px;
+    margin-bottom: 15px;
+    background-color: rgb(97, 155, 243);
+    border-radius: 10px;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Paragraph */
+.about-milk p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .slide{
+        left:-250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .slide{
+        left:-250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.prd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Container styling */
+.front {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 8%;
+  background-color: #fdfbf7; /* Warm cream background */
+  min-height: 80vh;
+  gap: 40px;
+  overflow: hidden;
+}
+
+/* Text wrapper */
+.front-content {
+  flex: 1;
+  max-width: 600px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+/* Brand Title */
+.front-content h1 {
+  font-size: 4rem;
+  color: #1b3022; /* Deep dark green */
+  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif; /* Elegant serif */
+  font-weight: 800;
+}
+
+/* Subheading/Tagline */
+.tagline {
+  font-size: 1.2rem;
+  color: #8b6e4e; /* Earthy gold/bronze */
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* Body description */
+.desc {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  margin-bottom: 2rem;
+}
+
+/* Hero Image */
+.front-img {
+  flex: 1;
+  max-width: 550px;
+  width: 100%;
+  height: auto;
+  border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%; /* Organic "blob" shape */
+  box-shadow: 25px 25px 50px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease;
+}
+
+.front-img:hover {
+  transform: scale(1.02) rotate(2deg);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+  .front {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 2rem 5%;
+    margin-top: 60px;
+  }
+
+  .front-content h1 {
+    font-size: 2.8rem;
+  }
+  
+  .front-img {
+    max-width: 80%;
+  }
+}
+.prd{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.prd .shop-title {
+  font-size: 32px;
+}

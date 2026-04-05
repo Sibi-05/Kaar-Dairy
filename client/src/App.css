@@ -1,0 +1,44 @@
+*{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:xx-large;
+}
+
+@media (max-width: 1024px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .banner-container{
+      height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products {
+        grid-template-columns: repeat(1, 1fr);
+        
+    }
+    .banner-container{
+      display: none;
+    }
+
+    .milk-image {
+        width: 350px;
+    }
+
+    .about-milk p {
+        font-size: 16px;
+    }
+    .menu{
+        display: flex;
+    }
+    .navs{
+        display: none;
+    }
+    
+}

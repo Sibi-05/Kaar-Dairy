@@ -1,0 +1,236 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(84, 138, 239);
+    color: aliceblue;
+    padding: 20px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    padding: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: aliceblue;
+    color: rgb(84, 138, 239);
+}
+
+.navs {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.navs div a{
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    color: aliceblue;
+    position: relative;
+    transition: all 0.3s ease;
+    font-size: large;
+    font-weight: 700;
+}
+
+.navs div:hover {
+    color: #e0e7ff;
+}
+
+
+.navs div:hover::after {
+    width: 100%;
+}
+
+.menu{
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    gap:7px;
+    cursor: pointer;
+
+}
+
+.menu .bar{
+    width: 50px;
+    height: 5px;
+    background-color: black;
+}
+
+@media (max-width: 480px) {
+    .navs{
+        display: none;
+    }
+    .menu{
+        display: flex;
+    }
+    
+}
+
+.slide{
+    position: fixed;
+    left:-250px;
+    top:0;
+    width: 250px;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    transition:left 0.5s ease;
+}
+
+.slide.active{
+    left:0;
+}
+
+.auth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: aliceblue;
+    height:35px;
+    font-weight: 600;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.auth:hover{
+   transform: scale(1.1);
+}
+
+.navs div a.active {
+  color: rgb(78, 123, 236);
+  background-color: aliceblue;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+/* --- Overlay Background --- */
+.navigation-overlay {
+  position: fixed;
+  inset: 0; /* shorthand for top/left/right/bottom: 0 */
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+}
+
+.navigation-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Close Button --- */
+.close-menu-btn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: serif;
+  letter-spacing: 1.5px;
+  color: #1a1a1a;
+}
+
+.close-menu-btn:hover{
+color:white;
+}
+
+/* --- Layout Container --- */
+.nav-container {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* --- Main Navigation Links --- */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-family: 'Playfair Display', serif; /* Or any classic serif */
+  font-size: 2.5rem;
+  transition: opacity 0.3s;
+}
+
+/* --- Auth/User Section --- */
+.nav-auth-section {
+  padding-top: 2rem;
+  border-top: 1px solid #eeeeee; /* Subtle separator line */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-text {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.auth-btn {
+  background: none;
+  border: 1px solid #1a1a1a;
+  padding: 10px 30px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color:black;
+}
+
+.auth-btn:hover {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+/* Hover effect for the whole nav */
+.nav-links:hover a {
+  opacity: 0.3;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+.user-section {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
+gap:20px;
+}
+.user-section .profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    width:40px;
+    height:40px;
+    border-radius: 100%;
+}

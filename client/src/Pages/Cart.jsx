@@ -8,7 +8,7 @@ const Cart = () => {
 
   const token = localStorage.getItem("token");
 
-  // Fetch cart from backend
+
   const fetchCart = async () => {
     if (!token) {
       toast.info("Please login");
@@ -17,7 +17,7 @@ const Cart = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5006/api/customer/cart", {
+      const response = await fetch("https://kaar-dairy.onrender.com/api/customer/cart", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -46,10 +46,9 @@ const Cart = () => {
     fetchCart();
   }, []);
 
-  // Update cart in backend
   const updateCartBackend = async (updatedCart) => {
     try {
-      const response = await fetch("http://localhost:5006/api/customer/cart", {
+      const response = await fetch("https://kaar-dairy.onrender.com/api/customer/cart", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -98,7 +97,7 @@ const Cart = () => {
     0
   );
 
-  if (loading) return <div>Loading cart...</div>;
+  if (loading) return <div className="loaded">Loading cart...</div>;
   if (cartItems.length === 0) return <div className="empty">Your cart is empty !</div>;
 
   const handlePlaceOrder = async () => {
@@ -113,7 +112,7 @@ const Cart = () => {
   }
 
   try {
-    const response = await fetch("http://localhost:5006/api/customer/order", {
+    const response = await fetch("https://kaar-dairy.onrender.com/api/customer/order", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`, 

@@ -78,7 +78,6 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* Mobile Menu */}
       <div className='menu' onClick={() => setOpen(!open)}>
         <div className='bar'></div>
         <div className='bar'></div>
@@ -86,14 +85,14 @@ const Navbar = () => {
       </div>
 
       <div className={`navigation-overlay ${open ? 'active' : ''}`}>
-  {/* Top Right Close Button */}
+
   <button className="close-menu-btn" onClick={() => setOpen(false)}>
     <span>CLOSE</span>
     <div className="close-icon">&times;</div>
   </button>
 
   <nav className="nav-container">
-    {/* Main Links */}
+
     <div className="nav-links">
       <Link to="/" onClick={() => setOpen(false)}>Home</Link>
       <Link to="/shop" onClick={() => setOpen(false)}>Shop</Link>
@@ -117,11 +116,11 @@ const Navbar = () => {
   </nav>
 </div>
 
-      {/* ✅ Modal with callback */}
+
       <LoginModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
-        onLogin={(userData) => setUser(userData)} // 🔥 IMPORTANT
+        onLogin={(userData) => setUser(userData)} 
       />
     </div>
   );

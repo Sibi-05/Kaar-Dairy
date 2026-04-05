@@ -6,13 +6,13 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-overlay">
         
-        {/* Left section */}
+
         <div className="footer-section">
           <h2>Kaar Dairy</h2>
           <p>Fresh dairy products delivered to your home.</p>
         </div>
 
-        {/* Links */}
+     
         <div className="footer-section">
           <h3>Quick Links</h3>
           <p>Home</p>
@@ -28,7 +28,7 @@ const Footer = () => {
 
       </div>
 
-      {/* Bottom */}
+
       <div className="footer-bottom">
         © 2026 Kaar Dairy. All rights reserved.
       </div>

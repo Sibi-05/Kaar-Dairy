@@ -16,20 +16,29 @@ const [phone,setPhone]=useState("");
   if (!isOpen) return null;
 
   const handleLogin = async () => {
+
+  if (!email || !password) {
+    toast.warning("Please fill all fields");
+    return;
+  }
+
+  // Optional: Email format check
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    toast.error("Enter a valid email");
+    return;
+  }
+
   try {
-    const response = await fetch("http://localhost:5006/api/auth/login", {
+    const response = await fetch("https://kaar-dairy.onrender.com/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
+      body: JSON.stringify({ email, password }),
     });
 
     let data;
-
     const contentType = response.headers.get("content-type");
 
     if (contentType && contentType.includes("application/json")) {
@@ -39,31 +48,53 @@ const [phone,setPhone]=useState("");
     }
 
     if (!response.ok) {
-      console.log(data);
+      toast.warning(data.message || "Login failed");
       return;
     }
 
-    // ✅ success
-    toast.success("Login Successfull!")
-    console.log("Login success:", data);
+    toast.success("Login Successful!");
     onLogin(data.user);
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", JSON.stringify(data.user));
 
     onClose();
-
   } catch (error) {
     console.log("Error:", error);
+    toast.error("Something went wrong");
   }
 };
 const handleRegister = async () => {
+  if (!name || !email || !password || !confirmPassword || !phone) {
+    toast.warning("Please fill all fields");
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    toast.error("Enter a valid email");
+    return;
+  }
+
+  const phoneRegex = /^[6-9]\d{9}$/;
+  if (!phoneRegex.test(phone)) {
+    toast.error("Enter valid 10-digit phone number");
+    return;
+  }
+
+
+  if (password.length < 6) {
+    toast.error("Password must be at least 6 characters");
+    return;
+  }
+
+
   if (password !== confirmPassword) {
     toast.error("Passwords do not match");
     return;
   }
 
   try {
-    const response = await fetch("http://localhost:5006/api/auth/register", {
+    const response = await fetch("https://kaar-dairy.onrender.com/api/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password, phone }),
@@ -71,11 +102,11 @@ const handleRegister = async () => {
 
     let data;
     const contentType = response.headers.get("content-type");
+
     if (contentType?.includes("application/json")) {
       data = await response.json();
     } else {
       data = await response.text();
-      console.log("Non-JSON response:", data);
     }
 
     if (!response.ok) {
@@ -85,8 +116,13 @@ const handleRegister = async () => {
 
     toast.success("Account created successfully!");
     setIsLogin(true);
-    setName(""); setEmail(""); setPassword(""); setConfirmPassword(""); setPhone("");
 
+
+    setName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    setPhone("");
   } catch (error) {
     console.log("Error:", error);
     toast.error("Something went wrong. Try again!");
@@ -101,7 +137,7 @@ const handleRegister = async () => {
         
         <h2>{isLogin ? "Login" : "Create Account"}</h2>
 
-        {/* Show name only in signup */}
+
         {!isLogin && (
   <input
     type="text"
@@ -118,7 +154,7 @@ const handleRegister = async () => {
   onChange={(e) => setEmail(e.target.value)}
 />
 
-{/* Password */}
+
 <input
   type="password"
   placeholder="Password"
@@ -143,7 +179,7 @@ const handleRegister = async () => {
           {isLogin ? "Login" : "Sign Up"}
         </button>
 
-        {/* Toggle text */}
+       
         <p className="toggle-text">
           {isLogin ? "Don't have an account?" : "Already have an account?"}
           <span onClick={() => setIsLogin(!isLogin)}>

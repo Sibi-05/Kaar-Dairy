@@ -62,7 +62,7 @@ const Shop = () => {
 
   try {
 
-    const fetchResponse = await fetch("http://localhost:5006/api/customer/cart", {
+    const fetchResponse = await fetch("https://kaar-dairy.onrender.com/api/customer/cart", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -78,7 +78,6 @@ const Shop = () => {
     const data = await fetchResponse.json();
     
     const currentCart = data ? data: [];
-    console.log(currentCart);
     const existingProduct = currentCart.find((p) => p.id === product.id);
     let updatedCart;
     if (existingProduct) {
@@ -91,7 +90,7 @@ const Shop = () => {
 
     setCart(updatedCart); 
 
-    const updateResponse = await fetch("http://localhost:5006/api/customer/cart", {
+    const updateResponse = await fetch("https://kaar-dairy.onrender.com/api/customer/cart", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

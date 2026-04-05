@@ -4,14 +4,14 @@ import "./Orders.css";
 const OrdersPage = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [expandedOrder, setExpandedOrder] = useState(null); // Track open invoice
+  const [expandedOrder, setExpandedOrder] = useState(null);
 
   useEffect(() => { fetchOrders(); }, []);
 
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5006/api/customer/orders", {
+      const response = await fetch("https://kaar-dairy.onrender.com/api/customer/orders", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -62,8 +62,6 @@ const OrdersPage = () => {
                 </div>
               </div>
 
-              {/* The "Expanded" Invoice Detail */}
-              {/* The "Expanded" Invoice Detail */}
 {expandedOrder === order.orderId && (
   <div className="invoice-detail">
     <div className="detail-header">

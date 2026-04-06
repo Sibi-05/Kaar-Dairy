@@ -14,19 +14,6 @@ import OrdersPage from './Pages/Orders';
 function App() {
 
 
-  async function getData() {
-  try {
-    const response = await fetch('http://localhost:5006/api/auth/users');
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    
-    const data = await response.json();
-  } catch (error) {
-    toast.error("Could not fetch data:", error);
-  }
-}
-getData();
-
-
   return (
     <>
       <Navbar />

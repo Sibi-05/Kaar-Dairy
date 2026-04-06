@@ -87,7 +87,7 @@ const handleRegister = async () => {
     toast.error("Passwords do not match");
     return;
   }
-
+   setLoading(true);
   try {
     const response = await fetch("https://kaar-dairy.onrender.com/api/auth/register", {
       method: "POST",
@@ -109,7 +109,7 @@ const handleRegister = async () => {
       return;
     }
 
-    setLoading(true);
+    
     toast.success("Account created successfully!");
     setIsLogin(true);
 
@@ -177,6 +177,7 @@ const handleRegister = async () => {
         <button
   className="login-btn"
   onClick={isLogin ? handleLogin : handleRegister}
+  style={{ cursor: loading ? "not-allowed" : "pointer" }}
   disabled={loading}
 >
   {loading

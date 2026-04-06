@@ -175,9 +175,17 @@ const handleRegister = async () => {
         )}
         
 
-        <button className="login-btn" onClick={isLogin ? handleLogin : handleRegister}>
-          {isLogin ? "Login" : "Sign Up"}
-        </button>
+        <button
+  className="login-btn"
+  onClick={isLogin ? handleLogin : handleRegister}
+  disabled={loading}
+>
+  {loading
+    ? "Please wait..."
+    : isLogin
+    ? "Login"
+    : "Sign Up"}
+</button>
 
        
         <p className="toggle-text">

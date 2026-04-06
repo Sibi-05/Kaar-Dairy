@@ -17,18 +17,12 @@ const [phone,setPhone]=useState("");
   if (!isOpen) return null;
 
   const handleLogin = async () => {
-
   if (!email || !password) {
     toast.warning("Please fill all fields");
     return;
   }
 
-  // Optional: Email format check
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    toast.error("Enter a valid email");
-    return;
-  }
+  setLoading(true);
 
   try {
     const response = await fetch("https://kaar-dairy.onrender.com/api/auth/login", {
@@ -42,11 +36,9 @@ const [phone,setPhone]=useState("");
     let data;
     const contentType = response.headers.get("content-type");
 
-    if (contentType && contentType.includes("application/json")) {
-      data = await response.json();
-    } else {
-      data = await response.text();
-    }
+    data = contentType?.includes("application/json")
+      ? await response.json()
+      : await response.text();
 
     if (!response.ok) {
       toast.warning(data.message || "Login failed");
@@ -60,8 +52,10 @@ const [phone,setPhone]=useState("");
 
     onClose();
   } catch (error) {
-    console.log("Error:", error);
+
     toast.error("Something went wrong");
+  } finally {
+    setLoading(false); 
   }
 };
 const handleRegister = async () => {
@@ -115,6 +109,7 @@ const handleRegister = async () => {
       return;
     }
 
+    setLoading(true);
     toast.success("Account created successfully!");
     setIsLogin(true);
 
@@ -127,6 +122,9 @@ const handleRegister = async () => {
   } catch (error) {
     console.log("Error:", error);
     toast.error("Something went wrong. Try again!");
+  }
+  finally{
+    setLoading(false);
   }
 };
 

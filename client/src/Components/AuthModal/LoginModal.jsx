@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 const LoginModal = ({ isOpen, onClose, onLogin  }) => {
   const [isLogin, setIsLogin] = useState(true); 
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 const [name, setName] = useState("");

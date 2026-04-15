@@ -17,22 +17,32 @@ function App() {
   useEffect(() => {
     const sendVisit = async () => {
       try {
-        await fetch("https://kaar-dairy.onrender.com/api/visit", {
+        const username = localStorage.getItem("user") || "Guest";
+
+        const data = {
+          username,
+          visitTime: new Date().toISOString(),
+        };
+
+        const res = await fetch("https://kaar-dairy.onrender.com/api/visit", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            username: "User"
-          }),
+          body: JSON.stringify(data),
         });
+
+        const result = await res.json();
+        console.log("Visit stored:", result);
+
       } catch (err) {
-        console.log(err);
+        console.error("Error sending visit:", err);
       }
     };
 
     sendVisit();
   }, []);
+
 
   return (
     <>

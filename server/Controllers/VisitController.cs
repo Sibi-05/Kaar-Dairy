@@ -20,7 +20,7 @@ public class VisitController : ControllerBase
         var visit = new Visits
         {
             Username = request.Username,
-            VisitTime = DateTime.Now
+            VisitTime = DateTime.UtcNow
         };
 
         _context.Visits.Add(visit);

@@ -19,9 +19,12 @@ function App() {
       try {
         const username = localStorage.getItem("user") || "Guest";
 
+        const indianTime = new Date().toLocaleString("en-IN", {
+          timeZone: "Asia/Kolkata",
+        });
         const data = {
           username,
-          visitTime: new Date().toISOString(),
+          visitTime: indianTime,
         };
 
         const res = await fetch("https://kaar-dairy.onrender.com/api/visit", {

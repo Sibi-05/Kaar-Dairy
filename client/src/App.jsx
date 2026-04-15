@@ -6,6 +6,7 @@ import About from './Pages/About';
 import Cart from './Pages/Cart';
 import Shop from './Pages/Shop';
 import Footer from './Components/Footer';
+import { useEffect } from 'react';
 
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';

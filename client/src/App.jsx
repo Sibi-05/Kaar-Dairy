@@ -17,13 +17,15 @@ function App() {
   useEffect(() => {
     const sendVisit = async () => {
       try {
-        const username = localStorage.getItem("user") || {name:"Guest"};
+        const username = localStorage.getItem("user")
+  ? JSON.parse(localStorage.getItem("user")).name
+  : "Guest";
 
         const indianTime = new Date().toLocaleString("en-IN", {
           timeZone: "Asia/Kolkata",
         });
         const data = {
-          username: username.name,
+          username,
           visitTime: indianTime,
         };
 

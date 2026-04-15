@@ -22,7 +22,8 @@ public class VisitController : ControllerBase
             Username = request.Username,
             VisitTime = TimeZoneInfo.ConvertTimeFromUtc(
     DateTime.UtcNow,
-    TimeZoneInfo.FindSystemTimeZoneById("India Standard Time"))
+    TimeZoneInfo.FindSystemTimeZoneById("Asia/Kolkata")
+)
         };
 
         _context.Visits.Add(visit);

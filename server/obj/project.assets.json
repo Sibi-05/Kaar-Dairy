@@ -3278,11 +3278,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/sibip/Desktop/Dotnet/NewProj/server/server.csproj",
+      "projectUniqueName": "/Users/sibip/Documents/Dotnet/NewProj/server/server.csproj",
       "projectName": "server",
-      "projectPath": "/Users/sibip/Desktop/Dotnet/NewProj/server/server.csproj",
+      "projectPath": "/Users/sibip/Documents/Dotnet/NewProj/server/server.csproj",
       "packagesPath": "/Users/sibip/.nuget/packages/",
-      "outputPath": "/Users/sibip/Desktop/Dotnet/NewProj/server/obj/",
+      "outputPath": "/Users/sibip/Documents/Dotnet/NewProj/server/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/sibip/.nuget/NuGet/NuGet.Config"

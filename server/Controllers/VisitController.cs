@@ -20,7 +20,9 @@ public class VisitController : ControllerBase
         var visit = new Visits
         {
             Username = request.Username,
-            VisitTime = DateTime.UtcNow
+            VisitTime = TimeZoneInfo.ConvertTimeFromUtc(
+    DateTime.UtcNow,
+    TimeZoneInfo.FindSystemTimeZoneById("India Standard Time"))
         };
 
         _context.Visits.Add(visit);

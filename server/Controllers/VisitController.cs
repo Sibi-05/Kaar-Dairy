@@ -15,20 +15,22 @@ public class VisitController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddVisit([FromBody] Visits request)
+public async Task<IActionResult> AddVisit([FromBody] Visits request)
+{
+    if (request == null || string.IsNullOrEmpty(request.Username))
     {
-        var visit = new Visits
-        {
-            Username = request.Username,
-            VisitTime = TimeZoneInfo.ConvertTimeFromUtc(
-    DateTime.UtcNow,
-    TimeZoneInfo.FindSystemTimeZoneById("Asia/Kolkata")
-)
-        };
-
-        _context.Visits.Add(visit);
-        await _context.SaveChangesAsync();
-
-        return Ok(visit);
+        return BadRequest("Invalid data");
     }
+
+    var visit = new Visits
+    {
+        Username = request.Username,
+        VisitTime = request.VisitTime // coming from frontend
+    };
+
+    _context.Visits.Add(visit);
+    await _context.SaveChangesAsync();
+
+    return Ok(visit);
+}
 }

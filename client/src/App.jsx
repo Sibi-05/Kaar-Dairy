@@ -13,6 +13,25 @@ import OrdersPage from './Pages/Orders';
 
 function App() {
 
+  useEffect(() => {
+    const sendVisit = async () => {
+      try {
+        await fetch("https://kaar-dairy.onrender.com/api/visit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: "User"
+          }),
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    sendVisit();
+  }, []);
 
   return (
     <>

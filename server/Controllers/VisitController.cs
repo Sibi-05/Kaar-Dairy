@@ -34,12 +34,10 @@ public async Task<IActionResult> AddVisit([FromBody] Visits request)
 
     return Ok(visit);
 }
-
 [HttpGet]
-public async Task<IActionResult> GetVisit([FromBody] Visits request)
+public async Task<IActionResult> GetVisit()
 {
     var users = await _context.Visits.ToListAsync();
-
     return Ok(users);
 }
 }

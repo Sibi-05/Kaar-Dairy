@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using server.Models;
+using Microsoft.EntityFrameworkCore;
 namespace server.Controllers;
 
 [ApiController]
@@ -32,5 +33,13 @@ public async Task<IActionResult> AddVisit([FromBody] Visits request)
     await _context.SaveChangesAsync();
 
     return Ok(visit);
+}
+
+[HttpGet]
+public async Task<IActionResult> GetVisit([FromBody] Visits request)
+{
+    var users = await _context.Visits.ToListAsync();
+
+    return Ok(users);
 }
 }
